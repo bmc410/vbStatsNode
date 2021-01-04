@@ -1,4 +1,4 @@
-import pool from '../dbconfig/dbconnector'
+//import pool from '../dbconfig/dbconnector'
 
 class TodosController {
 
@@ -27,7 +27,7 @@ class TodosController {
                 },
               ];
             
-             var j = JSON.stringify(products);
+             //var j = JSON.stringify(products);
 
             res.send(products);
         } catch (error) {
