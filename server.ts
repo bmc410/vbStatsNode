@@ -1,5 +1,5 @@
 //import express, { Application, Router } from 'express';
-import bodyParser from 'body-parser';
+//import bodyParser from 'body-parser';
 import todosRouter from './routers/TodosRouter';
 //import pool from './dbconfig/dbconnector'
 
@@ -14,8 +14,8 @@ class Server {
     }
 
     private config() {
-        this.app.use(bodyParser.urlencoded({ extended:true }));
-        this.app.use(bodyParser.json({ limit: '1mb' })); // 100kb default
+        //this.app.use(bodyParser.urlencoded({ extended:true }));
+        //this.app.use(bodyParser.json({ limit: '1mb' })); // 100kb default
     }
 
     private dbConnect() {
