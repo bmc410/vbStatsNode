@@ -4,7 +4,7 @@ class TodosController {
 
     public async get(req, res) {
         try {
-            //const client = await pool.connect();
+            const client = await pool.connect();
 
             const sql = "SELECT * FROM players";
             //const { rows } = await client.query(sql);
