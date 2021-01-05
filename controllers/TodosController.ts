@@ -1,16 +1,16 @@
-//import pool from '../dbconfig/dbconnector'
+import pool from '../dbconfig/dbconnector'
 
 class TodosController {
 
     public async get(req, res) {
         try {
-            //const client = await pool.connect();
+            const client = await pool.connect();
 
             const sql = "SELECT * FROM players";
-            //const { rows } = await client.query(sql);
-            //const todos = rows;
+            const { rows } = await client.query(sql);
+            const todos = rows;
 
-            //client.release();
+            client.release();
             const products = [
                 {
                   id: 1,
@@ -29,7 +29,7 @@ class TodosController {
             
              //var j = JSON.stringify(products);
 
-            res.send(products);
+            res.send(todos);
         } catch (error) {
             res.status(400).send(error);
         }
