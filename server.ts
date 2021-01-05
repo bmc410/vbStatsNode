@@ -1,4 +1,4 @@
-//import express, { Application, Router } from 'express';
+import express, { Application, Router } from 'express';
 //import bodyParser from 'body-parser';
 import todosRouter from './routers/TodosRouter';
 //import pool from './dbconfig/dbconnector'
@@ -7,7 +7,7 @@ class Server {
     private app;
 
     constructor() {
-        //this.app = express();
+        this.app = express();
         this.config();
         this.routerConfig();
         this.dbConnect();
