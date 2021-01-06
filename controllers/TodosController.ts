@@ -18,7 +18,7 @@ class TodosController {
             if(err) {
               throw err
             } else {
-              client.query("SELECT * from players", (err, res) => {
+              client.query("SELECT NOW()", (err, res) => {
                 done();
                 if (err) {
                   res.status(400).send(err.stack);
