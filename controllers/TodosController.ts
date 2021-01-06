@@ -17,12 +17,12 @@ class TodosController {
             
           })
           
-          client.query('SELECT * FROM players', (err, res) => {
+          client.query('SELECT NOW()', (err, res) => {
             if (err) throw err 
             console.log(res)
             const todos = res
           });
-          
+
           client.end()
           //   res.send(todos);
           // })
