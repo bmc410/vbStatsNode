@@ -14,7 +14,7 @@ class TodosController {
             port: 5432,
           });
 
-          await client.connect(function (err, client, done) {
+          client.connect(function (err, client, done) {
             if(err) {
               throw err
             } else {
@@ -56,7 +56,7 @@ class TodosController {
             
             //  //var j = JSON.stringify(products);
 
-            //res.status(200).send(todos);
+            res.status(200).send("HERE");
         } catch (error) {
           res.status(400).send(error.stack);
         }
