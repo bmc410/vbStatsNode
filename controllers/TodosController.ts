@@ -1,41 +1,39 @@
-//import client from '../dbconfig/dbconnector'
-import { Pool, Client } from 'pg';
+import pg from '../dbconfig/dbconnector'
+//import { Pool, Client } from 'pg';
 class TodosController {
 
-    public get(req, res) {
+    public async get(req, res) {
         try {
           var todos = null;
 
-          const pool = new Pool({
-            user: 'mtbijyawwysjzy',
-            host: 'ec2-3-231-241-17.compute-1.amazonaws.com',
-            database: 'd46kgtuu4i1a7',
-            password: 'a629bbf09042ec1f8014a630864202e5fe9aa4bcb7afa59901035f50a988a88c',
-            port: 5432,
-          });
-
-          pool.query('SELECT NOW()', (err, res) => {
-            res.status(200).send(res);
-          });
-
-          // pool.connect(function (err, client, done) {
-          //   if(err) {
-          //     throw err
-          //   } else {
-          //     res.status(200).send("Connected");
-          //     // client.query("SELECT NOW()", (err, res) => {
-          //     //   done();
-          //     //   if (err) {
-          //     //     res.status(400).send(err.stack);
-          //     //   } else {
-          //     //     res.status(200).send(res.rows);
-          //     //     //console.log(res.rows);
-          //     //   }
-          //     //   //todos = res
-          //     // });
-          //     //console.log("Connected");
-          //   }
+          // const pool = new client({
+          //   user: 'mtbijyawwysjzy',
+          //   host: 'ec2-3-231-241-17.compute-1.amazonaws.com',
+          //   database: 'd46kgtuu4i1a7',
+          //   password: 'a629bbf09042ec1f8014a630864202e5fe9aa4bcb7afa59901035f50a988a88c',
+          //   port: 5432,
           // });
+
+          pg.connect(function (err, client1, done) {
+            if(err) {
+              throw err
+            } else {
+              //client1.end();
+              //res.end();
+              res.status(200).send("Connected");
+              // client1.query("SELECT NOW()", (err, res) => {
+              //   done();
+              //   if (err) {
+              //     res.status(400).send(err.stack);
+              //   } else {
+              //     res.status(200).send(res.rows);
+              //     //console.log(res.rows);
+              //   }
+              //   //todos = res
+              // });
+              // console.log("Connected");
+            }
+          });
 
           // client.connect()(err => {
           //   if(err) {
