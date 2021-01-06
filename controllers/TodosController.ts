@@ -2,11 +2,11 @@
 import { Pool, Client } from 'pg';
 class TodosController {
 
-    public async get(req, res) {
+    public get(req, res) {
         try {
           var todos = null;
 
-          const client = new Pool({
+          const pool = new Pool({
             user: 'mtbijyawwysjzy',
             host: 'ec2-3-231-241-17.compute-1.amazonaws.com',
             database: 'd46kgtuu4i1a7',
@@ -14,7 +14,7 @@ class TodosController {
             port: 5432,
           });
 
-          client.connect(function (err, client, done) {
+          pool.connect(function (err, client, done) {
             if(err) {
               throw err
             } else {
