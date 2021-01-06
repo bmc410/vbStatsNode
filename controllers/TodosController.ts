@@ -8,7 +8,7 @@ class TodosController {
 
 
           const todos = null;
-          const client = new Client({
+          const client = new Pool({
             user: 'mtbijyawwysjzy',
             host: 'ec2-3-231-241-17.compute-1.amazonaws.com',
             database: 'd46kgtuu4i1a7',
