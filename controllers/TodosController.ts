@@ -13,10 +13,14 @@ class TodosController {
             password: 'a629bbf09042ec1f8014a630864202e5fe9aa4bcb7afa59901035f50a988a88c',
             port: 5432,
           });
-          client.connect()
-          // client.query('SELECT * FROM players', (err, res) => {
-          //   //console.log(err, res)
-          //   const todos = res
+          client.connect()(err => {
+            
+          })
+          
+          client.query('SELECT * FROM players', (err, res) => {
+            if (err) throw err 
+            console.log(res)
+            const todos = res
           client.end()
           //   res.send(todos);
           // })
