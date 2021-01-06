@@ -1,4 +1,4 @@
-import client from '../dbconfig/dbconnector'
+//import client from '../dbconfig/dbconnector'
 import { Pool, Client } from 'pg';
 class TodosController {
 
@@ -7,14 +7,14 @@ class TodosController {
             
 
 
-          //const todos = null;
-          // const client = new Client({
-          //   user: 'mtbijyawwysjzy',
-          //   host: 'ec2-3-231-241-17.compute-1.amazonaws.com',
-          //   database: 'd46kgtuu4i1a7',
-          //   password: 'a629bbf09042ec1f8014a630864202e5fe9aa4bcb7afa59901035f50a988a88c',
-          //   port: 5432,
-          // });
+          const todos = null;
+          const client = new Client({
+            user: 'mtbijyawwysjzy',
+            host: 'ec2-3-231-241-17.compute-1.amazonaws.com',
+            database: 'd46kgtuu4i1a7',
+            password: 'a629bbf09042ec1f8014a630864202e5fe9aa4bcb7afa59901035f50a988a88c',
+            port: 5432,
+          });
 
           client.connect()(err => {
             if(err) {
