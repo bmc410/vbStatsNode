@@ -26,12 +26,12 @@ class TodosController {
                 //   password: 'a629bbf09042ec1f8014a630864202e5fe9aa4bcb7afa59901035f50a988a88c',
                 //   port: 5432,
                 // });
-                dbconnector_1.default.connect(function (err, client1, done) {
+                dbconnector_1.default.connect(function (err, client, done) {
                     if (err) {
                         throw err;
                     }
                     else {
-                        client1.end();
+                        //client1.end();
                         //res.end();
                         res.status(200).send("Connected");
                         // client1.query("SELECT NOW()", (err, res) => {
