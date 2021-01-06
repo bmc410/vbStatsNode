@@ -21,6 +21,8 @@ class TodosController {
             if (err) throw err 
             console.log(res)
             const todos = res
+          });
+          
           client.end()
           //   res.send(todos);
           // })
