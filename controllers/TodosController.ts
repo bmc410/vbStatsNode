@@ -14,12 +14,12 @@ class TodosController {
             port: 5432,
           });
           client.connect()
-          client.query('SELECT * FROM players', (err, res) => {
-            //console.log(err, res)
-            const todos = res
-            client.end()
-            res.send(todos);
-          })
+          // client.query('SELECT * FROM players', (err, res) => {
+          //   //console.log(err, res)
+          //   const todos = res
+          client.end()
+          //   res.send(todos);
+          // })
           //const client = await pool.connect();
 
             //const sql = "SELECT * FROM players";
@@ -27,25 +27,25 @@ class TodosController {
             //const todos = rows;
 
             //client.release();
-            // const products = [
-            //     {
-            //       id: 1,
-            //       name: "hammer",
-            //     },
-            //     {
-            //       id: 2,
-            //       name: "screwdriver",
-            //     },
-            //     ,
-            //     {
-            //       id: 3,
-            //       name: "wrench",
-            //     },
-            //   ];
+            const products = [
+                {
+                  id: 1,
+                  name: "hammer",
+                },
+                {
+                  id: 2,
+                  name: "screwdriver",
+                },
+                ,
+                {
+                  id: 3,
+                  name: "wrench",
+                },
+              ];
             
             //  //var j = JSON.stringify(products);
 
-            // res.send(products);
+            res.send(products);
         } catch (error) {
             res.status(400).send(error);
         }
