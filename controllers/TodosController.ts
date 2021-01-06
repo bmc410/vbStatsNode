@@ -14,26 +14,26 @@ class TodosController {
           //   port: 5432,
           // });
 
-          pg.connect(function (err, client, done) {
-            if(err) {
-              throw err
-            } else {
-              //client1.end();
-              //res.end();
-              res.status(200).send("Connected");
-              // client1.query("SELECT NOW()", (err, res) => {
-              //   done();
-              //   if (err) {
-              //     res.status(400).send(err.stack);
-              //   } else {
-              //     res.status(200).send(res.rows);
-              //     //console.log(res.rows);
-              //   }
-              //   //todos = res
-              // });
+          // pg.connect(function (err, client, done) {
+          //   if(err) {
+          //     throw err
+          //   } else {
+          //     //client1.end();
+          //     //res.end();
+          //     res.status(200).send("Connected");
+              pg.query("SELECT NOW()", (err, res) => {
+                //done();
+                if (err) {
+                  res.status(400).send(err.stack);
+                } else {
+                  res.status(200).send(res.rows);
+                  //console.log(res.rows);
+                }
+                //todos = res
+              });
               // console.log("Connected");
             }
-          });
+          //});
 
           // client.connect()(err => {
           //   if(err) {
