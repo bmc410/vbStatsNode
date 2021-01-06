@@ -13,11 +13,11 @@ class TodosController {
           //   port: 5432,
           // });
 
-          //const client = await pool.connect();
+          const client = await pool.connect();
 
-            const sql = "SELECT * FROM players";
-            const { rows } = await pool.query(sql);
-            const todos = rows;
+            //const sql = "SELECT * FROM players";
+            //const { rows } = await pool.query(sql);
+            //const todos = rows;
 
             //client.release();
             const products = [
@@ -38,7 +38,7 @@ class TodosController {
             
              //var j = JSON.stringify(products);
 
-            res.send(todos);
+            res.send(products);
         } catch (error) {
             res.status(400).send(error);
         }
