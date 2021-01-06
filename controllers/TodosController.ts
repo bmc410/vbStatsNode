@@ -7,7 +7,7 @@ class TodosController {
             
 
 
-          const todos = null;
+          var todos = null;
           const client = new Pool({
             user: 'mtbijyawwysjzy',
             host: 'ec2-3-231-241-17.compute-1.amazonaws.com',
@@ -26,7 +26,7 @@ class TodosController {
                 } else {
                   console.log(res)
                 }
-                const todos = res
+                todos = res
               });
               console.log("Connected");
             }
@@ -70,7 +70,7 @@ class TodosController {
             
             //  //var j = JSON.stringify(products);
 
-            res.send(products);
+            res.send(todos);
         } catch (error) {
           res.status(400).send(error.stack);
         }
