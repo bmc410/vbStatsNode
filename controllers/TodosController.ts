@@ -24,7 +24,8 @@ class TodosController {
                 if (err) {
                   throw err
                 } else {
-                  console.log(res)
+                  todos = res;
+                  console.log(res);
                 }
                 todos = res
               });
@@ -70,7 +71,7 @@ class TodosController {
             
             //  //var j = JSON.stringify(products);
 
-            res.send(todos);
+            res.send(res);
         } catch (error) {
           res.status(400).send(error.stack);
         }
