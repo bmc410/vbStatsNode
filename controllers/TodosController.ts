@@ -14,24 +14,28 @@ class TodosController {
             port: 5432,
           });
 
-          pool.connect(function (err, client, done) {
-            if(err) {
-              throw err
-            } else {
-              res.status(200).send("Connected");
-              // client.query("SELECT NOW()", (err, res) => {
-              //   done();
-              //   if (err) {
-              //     res.status(400).send(err.stack);
-              //   } else {
-              //     res.status(200).send(res.rows);
-              //     //console.log(res.rows);
-              //   }
-              //   //todos = res
-              // });
-              //console.log("Connected");
-            }
+          pool.query('SELECT NOW()', (err, res) => {
+            res.status(200).send(res);
           });
+
+          // pool.connect(function (err, client, done) {
+          //   if(err) {
+          //     throw err
+          //   } else {
+          //     res.status(200).send("Connected");
+          //     // client.query("SELECT NOW()", (err, res) => {
+          //     //   done();
+          //     //   if (err) {
+          //     //     res.status(400).send(err.stack);
+          //     //   } else {
+          //     //     res.status(200).send(res.rows);
+          //     //     //console.log(res.rows);
+          //     //   }
+          //     //   //todos = res
+          //     // });
+          //     //console.log("Connected");
+          //   }
+          // });
 
           // client.connect()(err => {
           //   if(err) {
@@ -56,7 +60,7 @@ class TodosController {
             
             //  //var j = JSON.stringify(products);
 
-            res.status(200).send("HERE");
+            //res.status(200).send("HERE");
         } catch (error) {
           res.status(400).send(error.stack);
         }
