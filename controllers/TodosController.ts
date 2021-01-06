@@ -15,18 +15,20 @@ class TodosController {
           });
           client.connect()(err => {
             if(err) {
-              console.log(err.stack)
+              throw err
+            } else {
+              console.log("Connected");
             }
           })
           
-          client.query('SELECT NOW()', (err, res) => {
-            if (err) {
-              console.log(err.stack)
-            } else {
-              console.log(res)
-            }
-            const todos = res
-          });
+          // client.query('SELECT NOW()', (err, res) => {
+          //   if (err) {
+          //     console.log(err.stack)
+          //   } else {
+          //     console.log(res)
+          //   }
+          //   const todos = res
+          // });
 
           client.end()
           //   res.send(todos);

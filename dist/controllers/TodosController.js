@@ -22,35 +22,47 @@ class TodosController {
                     password: 'a629bbf09042ec1f8014a630864202e5fe9aa4bcb7afa59901035f50a988a88c',
                     port: 5432,
                 });
-                client.connect();
-                client.query('SELECT * FROM players', (err, res) => {
-                    //console.log(err, res)
-                    const todos = res;
-                    client.end();
-                    res.send(todos);
+                client.connect()(err => {
+                    if (err) {
+                        throw err;
+                    }
+                    else {
+                        console.log("Connected");
+                    }
                 });
+                // client.query('SELECT NOW()', (err, res) => {
+                //   if (err) {
+                //     console.log(err.stack)
+                //   } else {
+                //     console.log(res)
+                //   }
+                //   const todos = res
+                // });
+                client.end();
+                //   res.send(todos);
+                // })
                 //const client = await pool.connect();
                 //const sql = "SELECT * FROM players";
                 //const { rows } = await pool.query(sql);
                 //const todos = rows;
                 //client.release();
-                // const products = [
-                //     {
-                //       id: 1,
-                //       name: "hammer",
-                //     },
-                //     {
-                //       id: 2,
-                //       name: "screwdriver",
-                //     },
-                //     ,
-                //     {
-                //       id: 3,
-                //       name: "wrench",
-                //     },
-                //   ];
+                const products = [
+                    {
+                        id: 1,
+                        name: "hammer",
+                    },
+                    {
+                        id: 2,
+                        name: "screwdriver",
+                    },
+                    ,
+                    {
+                        id: 3,
+                        name: "wrench",
+                    },
+                ];
                 //  //var j = JSON.stringify(products);
-                // res.send(products);
+                res.send(products);
             }
             catch (error) {
                 res.status(400).send(error);
