@@ -14,7 +14,7 @@ class TodosController {
           //   port: 5432,
           // });
 
-          pg.connect(function (err, client1, done) {
+          pg.connect(function (err, client, done) {
             if(err) {
               throw err
             } else {
