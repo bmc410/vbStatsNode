@@ -4,10 +4,8 @@ class TodosController {
 
     public async get(req, res) {
         try {
-            
-
-
           var todos = null;
+
           const client = new Pool({
             user: 'mtbijyawwysjzy',
             host: 'ec2-3-231-241-17.compute-1.amazonaws.com',
@@ -20,11 +18,12 @@ class TodosController {
             if(err) {
               throw err
             } else {
-              client.query('SELECT * from players', (err, res) => {
+              client.query("SELECT * from players", (err, res) => {
+                done();
                 if (err) {
-                  throw err
+                  res.status(400).send(err.stack);
                 } else {
-                  todos = res.rows;
+                  res.status(200).send(res.rows);
                   //console.log(res.rows);
                 }
                 //todos = res
@@ -43,7 +42,7 @@ class TodosController {
           
           
 
-          client.end()
+          //client.end()
           //   res.send(todos);
           // })
           //const client = await pool.connect();
@@ -53,25 +52,10 @@ class TodosController {
             //const todos = rows;
 
             //client.release();
-            const products = [
-                {
-                  id: 1,
-                  name: "hammer",
-                },
-                {
-                  id: 2,
-                  name: "screwdriver",
-                },
-                ,
-                {
-                  id: 3,
-                  name: "wrench",
-                },
-              ];
             
             //  //var j = JSON.stringify(products);
 
-            res.status(200).send(todos);
+            //res.status(200).send(todos);
         } catch (error) {
           res.status(400).send(error.stack);
         }
