@@ -3,7 +3,7 @@ import pg from '../dbconfig/dbconnector'
 class TodosController {
 
     public async get(req, res) {
-        try {
+        //try {
           var todos = null;
 
           // const pool = new client({
@@ -32,7 +32,7 @@ class TodosController {
                 //todos = res
               });
               // console.log("Connected");
-            }
+            //}
           //});
 
           // client.connect()(err => {
@@ -59,10 +59,10 @@ class TodosController {
             //  //var j = JSON.stringify(products);
 
             //res.status(200).send("HERE");
-        } catch (error) {
-          res.status(400).send(error.stack);
-        }
+        // } catch (error) {
+        //   res.status(400).send(error.stack);
     }
+  //}
 }
 
 export default TodosController;
