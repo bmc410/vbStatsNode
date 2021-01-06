@@ -18,16 +18,17 @@ class TodosController {
             if(err) {
               throw err
             } else {
-              client.query("SELECT NOW()", (err, res) => {
-                done();
-                if (err) {
-                  res.status(400).send(err.stack);
-                } else {
-                  res.status(200).send(res.rows);
-                  //console.log(res.rows);
-                }
-                //todos = res
-              });
+              res.status(200).send("Connected");
+              // client.query("SELECT NOW()", (err, res) => {
+              //   done();
+              //   if (err) {
+              //     res.status(400).send(err.stack);
+              //   } else {
+              //     res.status(200).send(res.rows);
+              //     //console.log(res.rows);
+              //   }
+              //   //todos = res
+              // });
               //console.log("Connected");
             }
           });
