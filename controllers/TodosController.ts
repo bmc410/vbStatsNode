@@ -16,13 +16,21 @@ class TodosController {
             port: 5432,
           });
 
-          client.connect()(err => {
+          client.connect(function (err, client, done) {
             if(err) {
               throw err
             } else {
               console.log("Connected");
             }
-          })
+          });
+
+          // client.connect()(err => {
+          //   if(err) {
+          //     throw err
+          //   } else {
+          //     console.log("Connected");
+          //   }
+          // })
           
           // client.query('SELECT NOW()', (err, res) => {
           //   if (err) {
