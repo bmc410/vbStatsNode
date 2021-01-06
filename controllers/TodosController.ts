@@ -25,11 +25,11 @@ class TodosController {
                   throw err
                 } else {
                   todos = res.rows;
-                  console.log(res.rows);
+                  //console.log(res.rows);
                 }
                 //todos = res
               });
-              console.log("Connected");
+              //console.log("Connected");
             }
           });
 
@@ -71,7 +71,7 @@ class TodosController {
             
             //  //var j = JSON.stringify(products);
 
-            res.send(todos);
+            res.status(200).send(todos);
         } catch (error) {
           res.status(400).send(error.stack);
         }
