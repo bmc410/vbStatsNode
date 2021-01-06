@@ -14,12 +14,17 @@ class TodosController {
             port: 5432,
           });
           client.connect()(err => {
-            
+            if(err) {
+              console.log(err.stack)
+            }
           })
           
           client.query('SELECT NOW()', (err, res) => {
-            if (err) throw err 
-            console.log(res)
+            if (err) {
+              console.log(err.stack)
+            } else {
+              console.log(res)
+            }
             const todos = res
           });
 
