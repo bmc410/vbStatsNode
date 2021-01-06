@@ -13,7 +13,7 @@ class TodosController {
           //   port: 5432,
           // });
 
-          const client = await pool.connect();
+          //const client = await pool.connect();
 
             //const sql = "SELECT * FROM players";
             //const { rows } = await pool.query(sql);
