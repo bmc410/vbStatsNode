@@ -20,6 +20,14 @@ class TodosController {
             if(err) {
               throw err
             } else {
+              client.query('SELECT * from players', (err, res) => {
+                if (err) {
+                  throw err
+                } else {
+                  console.log(res)
+                }
+                const todos = res
+              });
               console.log("Connected");
             }
           });
@@ -32,14 +40,7 @@ class TodosController {
           //   }
           // })
           
-          // client.query('SELECT NOW()', (err, res) => {
-          //   if (err) {
-          //     console.log(err.stack)
-          //   } else {
-          //     console.log(res)
-          //   }
-          //   const todos = res
-          // });
+          
 
           client.end()
           //   res.send(todos);
