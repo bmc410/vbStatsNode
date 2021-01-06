@@ -25,9 +25,9 @@ class TodosController {
                   throw err
                 } else {
                   todos = res.rows;
-                  console.log(res);
+                  console.log(res.rows);
                 }
-                todos = res
+                //todos = res
               });
               console.log("Connected");
             }
