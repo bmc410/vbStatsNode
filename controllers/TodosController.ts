@@ -14,7 +14,7 @@ class TodosController {
             port: 5432,
           });
 
-          client.connect(function (err, client, done) {
+          await client.connect(function (err, client, done) {
             if(err) {
               throw err
             } else {
