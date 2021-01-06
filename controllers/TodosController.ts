@@ -1,18 +1,22 @@
 import pool from '../dbconfig/dbconnector'
-import { Pool } from 'pg';
+import { Pool, Client } from 'pg';
 class TodosController {
 
     public async get(req, res) {
         try {
             
-          // const pool = new Pool({
-          //   user: 'mtbijyawwysjzy',
-          //   host: 'ec2-3-231-241-17.compute-1.amazonaws.com',
-          //   database: 'd46kgtuu4i1a7',
-          //   password: 'a629bbf09042ec1f8014a630864202e5fe9aa4bcb7afa59901035f50a988a88c',
-          //   port: 5432,
-          // });
-
+          const client = new Client({
+            user: 'mtbijyawwysjzy',
+            host: 'ec2-3-231-241-17.compute-1.amazonaws.com',
+            database: 'd46kgtuu4i1a7',
+            password: 'a629bbf09042ec1f8014a630864202e5fe9aa4bcb7afa59901035f50a988a88c',
+            port: 5432,
+          });
+          client.connect()
+          client.query('SELECT NOW()', (err, res) => {
+            //console.log(err, res)
+            client.end()
+          })
           //const client = await pool.connect();
 
             //const sql = "SELECT * FROM players";
